@@ -1,0 +1,27 @@
+<div class="container">
+    <ng-content></ng-content>
+    <div class = "row">
+        <table class = "table text-center table-hover table-sm">
+            <caption #caption>List of users</caption>
+            <thead class = "thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>name</th>
+                    <th>gender</th>
+                    <th>city</th>
+                    <th>scores</th>
+                </tr>
+            </thead>
+            <tbody style = "cursor: pointer" class = "">
+                <tr
+                    *ngFor = "let user of users, let i = index">
+                    <td>{{i + 1}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.gender}}</td>
+                    <td>{{user.city}}</td>
+                    <td>{{user.scores}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="insert">
+    <h3 class = "text-center">Registration field {{title}}</h3>
+    <form (ngSubmit) = "onSubmit(checkoutForm)" [formGroup] = "checkoutForm"  novalidate>
+        <div class="form-row mb-2">
+            <div class="form-group col">
+                <label for="name">Name</label>
+                <input 
+                    formControlName = "name" 
+                    name = "name" 
+                    class = "form-control" 
+                    type="text" 
+                    id = "name">
+                <div class="alert-danger text-center mt-1"
+                    *ngIf="checkoutForm.controls['name'].invalid && checkoutForm.controls['name'].touched">
+                    enter your name
+                </div>
+            </div>
+
+            <div class="form-group col">
+                <label for="city">City</label>
+                <select class="form-control" id="city" formControlName = "city" >
+                    <option [hidden] = "true" [disabled] = "true" [selected] = "true">choose your city...</option>
+                    <option  *ngFor = "let city of userCities" >{{city}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row mb-2">
+            <div class="form-group col">
+                <label for="gender">Role</label>
+                <select class="form-control" id="gender" formControlName = "gender" name = "gender">
+                    <option [hidden] = "true" [disabled] = "true" [selected] = "true">choose your gender...</option>
+                    <option *ngFor = "let gender of genders" >{{gender}}</option>
+                </select>
+            </div>
+
+            <div class="form-group col">
+                <label for="scores">Scores</label>
+                <input class = "form-control" id = "scores" type="text" formControlName = "scores" name = "scores">
+                <div class="alert-danger text-center mt-1"
+                    *ngIf="checkoutForm.controls['scores'].invalid && checkoutForm.controls['scores'].touched">
+                    enter your scores
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row mb-2">    
+            <div class="form-group col">
+                <label for="image">Your image</label>
+                <input type="file" class="form-control-file" id="image">
+            </div>        
+
+        </div>
+        <button 
+            type="submit" 
+            [disabled]="checkoutForm.invalid" 
+            [ngClass] = "checkoutForm.invalid ? 'btn-secondary' : 'btn-primary'"
+            class="btn mb-2">Add to table</button>
+
+    </form>
+</div>
