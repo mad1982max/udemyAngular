@@ -1,0 +1,25 @@
+<div class = "row my-3">
+  <div 
+    *ngIf = "date" 
+    class="offset-7 col-5 align-self-center">
+    last user was added: 
+    <span 
+      class="alert alert-secondary p-0" 
+      role="alert">
+      {{date}}
+    </span>
+  </div>
+</div>
+
+<div class="row">
+  <app-insert 
+    [title] = "'*_*'" 
+    (userAdded) = "refreshTitle($event)" 
+    class = "col">
+  </app-insert>
+  <app-table 
+    class = "col">
+    <h4 #additData>Some data</h4>
+  </app-table>
+</div>   
+
